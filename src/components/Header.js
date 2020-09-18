@@ -8,7 +8,7 @@ class Header extends Component {
         const {cart} = this.props;
         return (
             <nav className="navbar navbar-expand-lg navbar-light bg-light">
-                <NavLink classname={"navbar-brand"} to={"/"}>
+                <NavLink className={"navbar-brand"} to={"/"}>
                     <img src="https://getbootstrap.com/docs/4.0/assets/brand/bootstrap-solid.svg" width="30" height="30" alt="" />
                 </NavLink>
                 <ul className="navbar-nav ml-auto">

@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import Header from "./components/Header";
 
 
-class App extends Component {
+class Template extends Component {
     render() {
         console.log(this.props)
         return (
@@ -16,4 +16,4 @@ class App extends Component {
     }
 }
 
-export default App
+export default Template

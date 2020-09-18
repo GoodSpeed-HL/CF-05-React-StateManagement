@@ -9,15 +9,15 @@ class Products extends Component {
                 <h1 className={"mb-4"}>Shopping Cart</h1>
                 <div className="row">
                     {this.props.productList.map(item => {
-                        return (<div className="col-sm-4">
+                        return (<div className="col-sm-4" key={item.id}>
                             <div className="card">
                                 <div className="card-body">
                                     <h5 className="card-title"><span className={"float-right"}>{item.inventory}</span>{item.title}</h5>
                                     <p className="card-text">Description.</p>
-                                    <a href="#" className="btn btn-primary" onClick={(e) => {
+                                    <button disabled={!item.inventory} className="btn btn-primary" onClick={(e) => {
                                         e.preventDefault();
                                         this.props.addProduct(item)
-                                    }}>Add To Cart</a>
+                                    }}>Add To Cart</button>
                                 </div>
                             </div>
                         </div>)

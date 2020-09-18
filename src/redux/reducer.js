@@ -23,7 +23,10 @@ export default function (state = initStates, action) {
             })
 
             if(targetProduct && targetProduct.inventory >= 1){
+                //state.cart.items.push(action.payload)
+                //state.cart.total = 5;
                 return {
+                    ...state,
                     productList: state.productList.map(item => {
                         if(action.payload.id === item.id){
                             return {
@@ -34,6 +37,7 @@ export default function (state = initStates, action) {
                         return {...item}
                     }),
                     cart: increaseCartItem(state.cart.items, action.payload)
+
                 }
             }
             else{
@@ -86,13 +90,13 @@ const increaseCartItem = (items = [], newItem) => {
         })
     }
 
-    for(let item of items){
+   /* for(let item of items){
         total += item.quantity * item.price
         newCartItem.push({...item});
-    }
+    }*/
 
     return {
-        items: newCartItem,
+        items: items,
         total: total.toFixed(2)
     }
 }

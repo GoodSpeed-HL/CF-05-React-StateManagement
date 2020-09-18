@@ -16,8 +16,8 @@ class Checkout extends Component {
                                     <small className="text-muted">Description</small>
                                 </div>
                                 <span className="text-muted">${item.price}</span>
-                                <>
-                                    <button className={"btn btn-danger"} onClick={(e) => {
+                                <div>
+                                    <button className={"btn btn-danger mr-2"} onClick={(e) => {
                                         e.preventDefault();
                                         this.props.removeProduct(item)
                                     }}>Remove</button>
@@ -25,7 +25,7 @@ class Checkout extends Component {
                                         e.preventDefault();
                                         this.props.addProduct(item)
                                     }}>Add</button>
-                                </>
+                                </div>
                             </li>
                        )
                     })}

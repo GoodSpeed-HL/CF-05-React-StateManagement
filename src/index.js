@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+import Template from './Template';
 import * as serviceWorker from './serviceWorker';
 import {Provider} from "react-redux";
 import store from './redux/index';
@@ -20,15 +20,14 @@ ReactDOM.render(
           <Router>
           <Switch>
               <Route path="/" exact>
-                  <App>
+                  <Template>
                       <Products/>
-                      <Checkout/>
-                  </App>
+                  </Template>
               </Route>
               <Route path="/checkout">
-                  <App>
+                  <Template>
                       <Checkout/>
-                  </App>
+                  </Template>
               </Route>
           </Switch>
           </Router>
