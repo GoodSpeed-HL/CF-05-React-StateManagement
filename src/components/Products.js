@@ -1,9 +1,13 @@
 import React, {Component} from 'react';
 
 import {connect} from "react-redux";
-import cartSlice from "../redux/cartSlice";
+import cartSlice, {loadProductList} from "../redux/cartSlice";
 const {addToCart, removeFromCart} = cartSlice.actions;
 class Products extends Component {
+    componentDidMount() {
+        this.props.loadProductList();
+    }
+
     render() {
         return (
             <>
@@ -43,7 +47,8 @@ const mapStateToProps = (state, ownProps) =>  {
 }
 
 const mapDispatchToProps = {
-    addToCart
+    addToCart,
+    loadProductList
 }
 
 

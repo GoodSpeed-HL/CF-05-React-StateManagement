@@ -1,13 +1,20 @@
-import {createSlice} from "@reduxjs/toolkit";
+import {createSlice, createAsyncThunk} from "@reduxjs/toolkit";
+
+const loadProductList = createAsyncThunk(
+    'cart/loadProductList',
+    async (userId, thunkAPI) => {
+        const rawResponse = await fetch("/data.json");
+        const jsonResponse = await rawResponse.json();
+        return jsonResponse;
+    }
+)
 
 const productSlice = createSlice({
     name: "cart",
     initialState: {
         items: [],
         total: 0,
-        productList:  [{"id": 1, "title": "iPad 4 Mini", "price": 500.01, "inventory": 2},
-            {"id": 2, "title": "H&M T-Shirt White", "price": 10.99, "inventory": 10},
-            {"id": 3, "title": "Charli XCX - Sucker CD", "price": 19.99, "inventory": 5}]
+        productList:  []
     },
     reducers: {
         addToCart : (state, action) => {
@@ -70,7 +77,16 @@ const productSlice = createSlice({
             state.items = newCartItem
             return state;
         }
+    },
+    extraReducers: {
+        [loadProductList.fulfilled]: (state , action) =>{
+            state.productList = action.payload
+        }
     }
+
 })
 
+
+
 export default productSlice;
+export {loadProductList}
