@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import {addProduct} from "../redux/actionCreator";
 
 import {connect} from "react-redux";
 import cartSlice from "../redux/cartSlice";

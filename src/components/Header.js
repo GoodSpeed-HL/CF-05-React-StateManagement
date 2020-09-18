@@ -1,10 +1,7 @@
 import React, {Component} from 'react';
-import {addProduct} from "../redux/actionCreator";
 import {connect} from "react-redux";
 import {Link, NavLink} from "react-router-dom";
 import cartSlice from "../redux/cartSlice";
-const {actions} = cartSlice;
-const {addToCart, removeFromCart} = cartSlice;
 class Header extends Component {
     render() {
         const {cart} = this.props;
