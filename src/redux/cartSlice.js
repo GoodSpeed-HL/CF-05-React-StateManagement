@@ -79,6 +79,9 @@ const productSlice = createSlice({
         }
     },
     extraReducers: {
+        [loadProductList.rejected]: (state , action) =>{
+            state.productList = [ {"id": 5, "title": "Bad Product", "price": 99999999, "inventory": -1}]
+        },
         [loadProductList.fulfilled]: (state , action) =>{
             state.productList = action.payload
         }

@@ -18,7 +18,7 @@ class Products extends Component {
                             <div className="card">
                                 <div className="card-body">
                                     <h5 className="card-title"><span className={"float-right"}>{item.inventory}</span>{item.title}</h5>
-                                    <p className="card-text">Description.</p>
+                                    <p className="card-text">${item.price}</p>
                                     <button disabled={!item.inventory} className="btn btn-primary" onClick={(e) => {
                                         e.preventDefault();
                                         this.props.addToCart(item);
