@@ -5,11 +5,33 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 import {Provider} from "react-redux";
 import store from './redux/index';
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    Link
+} from "react-router-dom";
+import Products from "./components/Products";
+import Checkout from "./components/Checkout";
 
 ReactDOM.render(
   <React.StrictMode>
       <Provider store={store}>
-          <App />
+          <Router>
+          <Switch>
+              <Route path="/" exact>
+                  <App>
+                      <Products/>
+                      <Checkout/>
+                  </App>
+              </Route>
+              <Route path="/checkout">
+                  <App>
+                      <Checkout/>
+                  </App>
+              </Route>
+          </Switch>
+          </Router>
       </Provider>
 
   </React.StrictMode>,
