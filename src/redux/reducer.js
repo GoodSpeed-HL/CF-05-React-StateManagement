@@ -74,9 +74,9 @@ export default function (state = initStates, action) {
 
 
 const increaseCartItem = (items = [], newItem) => {
-    let total = 0;
-    let newCartItem = [];
 
+    let newCartItem = [];
+    let total = 0;
     let productInCart = items.find(item => item.id === newItem.id);
     console.log(productInCart);
 

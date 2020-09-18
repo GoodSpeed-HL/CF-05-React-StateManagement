@@ -2,7 +2,9 @@ import React, {Component} from 'react';
 import {addProduct} from "../redux/actionCreator";
 import {connect} from "react-redux";
 import {Link, NavLink} from "react-router-dom";
-
+import cartSlice from "../redux/cartSlice";
+const {actions} = cartSlice;
+const {addToCart, removeFromCart} = cartSlice;
 class Header extends Component {
     render() {
         const {cart} = this.props;
@@ -13,7 +15,9 @@ class Header extends Component {
                 </NavLink>
                 <ul className="navbar-nav ml-auto">
                     <li className="nav-item">
-                        <Link to={"/checkout"}>{cart.items.length} {cart.items.length <= 1 ? "item" : "items"}</Link>
+                        <Link to={"/checkout"}>
+                            {cart.items.length} {cart.items.length <= 1 ? "item" : "items"}
+                        </Link>
                     </li>
                 </ul>
             </nav>
@@ -24,7 +28,7 @@ class Header extends Component {
 
 const mapStateToProps = (state, ownProps) =>  {
     return {
-        cart: state.shop.cart
+        cart: state.cart
     }
 }
 

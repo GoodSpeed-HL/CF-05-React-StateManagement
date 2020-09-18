@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
-import {addProduct, removeProduct} from "../redux/actionCreator";
+import productSlice from "../redux/productSlice";
+import cartSlice from "../redux/cartSlice";
 import {connect} from "react-redux";
-
+const {addToCart, removeFromCart} = cartSlice.actions;
 class Checkout extends Component {
     render() {
         return (
@@ -19,11 +20,11 @@ class Checkout extends Component {
                                 <div>
                                     <button className={"btn btn-danger mr-2"} onClick={(e) => {
                                         e.preventDefault();
-                                        this.props.removeProduct(item)
+                                        this.props.removeFromCart(item);
                                     }}>Remove</button>
-                                    <button className={"btn btn-primary"} onClick={(e) => {
+                                    <button  className={"btn btn-primary"} onClick={(e) => {
                                         e.preventDefault();
-                                        this.props.addProduct(item)
+                                        this.props.addToCart(item)
                                     }}>Add</button>
                                 </div>
                             </li>
@@ -42,13 +43,14 @@ class Checkout extends Component {
 
 const mapStateToProps = (state, ownProps) =>  {
     return {
-        cart: state.shop.cart
+        cart: state.cart,
+        productList: state.product
     }
 }
 
 const mapDispatchToProps = {
-    addProduct,
-    removeProduct
+    removeFromCart,
+    addToCart
 }
 
 export default connect(
