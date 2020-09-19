@@ -47,7 +47,6 @@ const productSlice = createSlice({
 
                 state.total = total.toFixed(2);
             }
-            return state;
         },
         removeFromCart: (state, action) => {
             let total = 0;
@@ -75,7 +74,6 @@ const productSlice = createSlice({
 
             state.total = total.toFixed(2);
             state.items = newCartItem
-            return state;
         }
     },
     extraReducers: {

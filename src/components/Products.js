@@ -5,7 +5,9 @@ import cartSlice, {loadProductList} from "../redux/cartSlice";
 const {addToCart, removeFromCart} = cartSlice.actions;
 class Products extends Component {
     componentDidMount() {
-        this.props.loadProductList();
+        if(this.props.productList.length === 0){
+            this.props.loadProductList();
+        }
     }
 
     render() {

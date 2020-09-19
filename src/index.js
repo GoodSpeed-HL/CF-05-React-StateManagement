@@ -3,8 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import Template from './Template';
 import * as serviceWorker from './serviceWorker';
-import {Provider} from "react-redux";
-import {configureStore, combineReducers} from "@reduxjs/toolkit";
+
 import cartSlice from './redux/cartSlice';
 import {
     BrowserRouter as Router,
@@ -14,7 +13,8 @@ import {
 } from "react-router-dom";
 import Products from "./components/Products";
 import Checkout from "./components/Checkout";
-
+import {Provider} from "react-redux";
+import {configureStore, combineReducers} from "@reduxjs/toolkit";
 
 const rootReducer = combineReducers({
     cart: cartSlice.reducer
