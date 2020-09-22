@@ -1,20 +1,14 @@
 import React, {Component} from 'react';
 import Header from "./components/Header";
-import {withRouter} from "react-router-dom";
+import PublicHeader from "./components/PublicHeader";
 
 
 class Template extends Component {
-    componentDidMount() {
-        if(!localStorage.getItem("token")){
-            this.props.history.push("/");
-        }
-    }
-
     render() {
         console.log(process.env.REACT_APP_API_ENDPOINT)
         return (
             <>
-                <Header/>
+                <PublicHeader/>
                 <div className={"container"}>
                     {this.props.children}
                 </div>
@@ -23,4 +17,4 @@ class Template extends Component {
     }
 }
 
-export default withRouter(Template)
+export default Template

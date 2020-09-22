@@ -13,6 +13,10 @@ import {
 } from "react-router-dom";
 import Products from "./components/Products";
 import Checkout from "./components/Checkout";
+import PublicTemplate from "./PublicTemplate";
+import Login from "./components/Login";
+
+
 
 ReactDOM.render(
   <React.StrictMode>
@@ -20,15 +24,20 @@ ReactDOM.render(
           <Router>
           <Switch>
               <Route path="/" exact>
-                  <Template>
+                  <PublicTemplate>
                       <Products/>
-                  </Template>
+                  </PublicTemplate>
               </Route>
               <Route path="/checkout">
                   <Template>
                       <Checkout/>
                   </Template>
               </Route>
+              <Route path="/login">
+                  <Login/>
+              </Route>
+
+
           </Switch>
           </Router>
       </Provider>

@@ -6,7 +6,7 @@ const initStates = {
         {"id": 3, "title": "Charli XCX - Sucker CD", "price": 19.99, "inventory": 5}
     ],
     cart: {
-        items: [{"id": 3, "title": "Charli XCX - Sucker CD", "price": 19.99, "inventory": 5, 'quantity': 1}],
+        items: [],
         total: 0
     }
 }
